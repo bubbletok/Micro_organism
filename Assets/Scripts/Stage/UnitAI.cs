@@ -13,7 +13,7 @@ public class UnitAI : MonoBehaviour
     [SerializeField] float dmg;
     [SerializeField] Transform target;
     [SerializeField] float attackDelay;
-    [SerializeField] bool ourUnit;
+    [SerializeField] protected bool ourUnit;
     [SerializeField] GameObject attackProjectile;
     
 
@@ -31,12 +31,28 @@ public class UnitAI : MonoBehaviour
     {
         if (ourUnit) //아군 unit 이라면 적 콜로니로 향함
         {
-            target = GameObject.FindWithTag("EnemySpawner").transform;
+            GameObject temp = GameObject.FindWithTag("EnemySpawner");
+            if (temp != null)
+            {
+                target = temp.transform;
+            }
+            else
+            {
+                target = null;
+            }
         }
 
         else //적 unit 이라면 아군 콜로니로 향함
         {
-            target = GameObject.FindWithTag("OurSpawner").transform;
+            GameObject temp = GameObject.FindWithTag("OurSpawner");
+            if (temp != null)
+            {
+                target = temp.transform;
+            }
+            else
+            {
+                target = null;
+            }
         }
     }
 
@@ -89,6 +105,10 @@ public class UnitAI : MonoBehaviour
                     dirToTarget = Vector3.zero;
                 }
             }
+        }
+        else
+        {
+            dirToTarget = (target.position - transform.position).normalized;
         }
 
         //check if it has an attack target
@@ -146,6 +166,10 @@ public class UnitAI : MonoBehaviour
     {
         if (hp<=0)
         {
+            if (!ourUnit)
+            {
+                GameManager.Instance.amino++;
+            }
             Destroy(gameObject);
         }
     }
@@ -175,7 +199,6 @@ public class UnitAI : MonoBehaviour
 
     void GetToxicDamage()
     {
-        print("TOXIC");
         if (canGetToxic)
         {
 

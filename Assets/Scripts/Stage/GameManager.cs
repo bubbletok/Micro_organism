@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject winUI;
     [SerializeField] GameObject defeatUI;
     [SerializeField] GameObject resumeUI;
+    [SerializeField] string nextScene;
 
     GameObject ourSpawner;
     GameObject[] enemySpanwer;
@@ -47,12 +48,14 @@ public class GameManager : MonoBehaviour
         if (enemySpanwer.Length == 0)
         {
             Time.timeScale = 0;
-            winUI.SetActive(true);
+            StartCoroutine(StartNext());
+            //winUI.SetActive(true);
         }
         if (ourSpawner == null)
         {
             Time.timeScale = 0;
-            defeatUI.SetActive(false);
+            StartCoroutine(Restart());
+            //defeatUI.SetActive(false);
         }
         if (canGetAmino)
         {
@@ -72,6 +75,18 @@ public class GameManager : MonoBehaviour
         canGetAmino = true;
     }
 
+
+    IEnumerator StartNext()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(nextScene);
+    }
+
+    IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     void PauseResumeGame()
     {
         Time.timeScale = Time.timeScale == 0 ? 1 : 0;

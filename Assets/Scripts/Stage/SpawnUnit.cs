@@ -6,7 +6,7 @@ public class SpawnUnit : MonoBehaviour
 {
     [SerializeField] GameObject[] spawnUnit;
     [SerializeField] Transform[] spawnPoint;
-
+    [SerializeField] int[] spawnCost;
 
     float[,] aw;
     float[,] ph;
@@ -22,9 +22,9 @@ public class SpawnUnit : MonoBehaviour
     }
     public void Spawn(int unit_num)
     {
-        if (GameManager.Instance.amino >= 1)
+        if (GameManager.Instance.amino >= spawnCost[unit_num])
         {
-            GameManager.Instance.amino--;
+            GameManager.Instance.amino -= spawnCost[unit_num];
             int randPoint = Random.Range(0, spawnUnit.Length);
             bool isSuitable = checkIsSuitable(unit_num);
             if (isSuitable)

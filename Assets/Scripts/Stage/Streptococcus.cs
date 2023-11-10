@@ -31,13 +31,15 @@ public class Streptococcus : UnitAI
         {
             if (toxin != null)
             {
-                print("asdf");
-                Instantiate(toxin, transform.position, Quaternion.identity);
-/*                int randN = Random.Range(0, 1);
+                int randN = Random.Range(0, 5);
                 if (randN == 0)
                 {
                     Instantiate(toxin, transform.position, Quaternion.identity);
-                }*/
+                }
+            }
+            if (!ourUnit)
+            {
+                GameManager.Instance.amino++;
             }
             Destroy(gameObject);
         }

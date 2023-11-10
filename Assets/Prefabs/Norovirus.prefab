@@ -148,11 +148,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 300
+  onToxic: 0
   maxhp: 300
   speed: 2
-  dmg: 100
+  dmg: 50
   target: {fileID: 0}
-  attackDelay: 5
+  attackDelay: 3
   ourUnit: 1
   attackProjectile: {fileID: 1067174648036911984, guid: 7f0edf21d0d88bc49883abc9e59ab25a, type: 3}
 --- !u!95 &-7721921838133743463
