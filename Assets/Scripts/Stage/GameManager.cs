@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.Rendering.DebugUI;
+
 public class GameManager : MonoBehaviour
 {
     public float aw,ph,temp;
@@ -38,23 +40,24 @@ public class GameManager : MonoBehaviour
         enemySpanwer = GameObject.FindGameObjectsWithTag("EnemySpawner");
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        ourSpawner = GameObject.FindGameObjectWithTag("OurSpawner");
+        enemySpanwer = GameObject.FindGameObjectsWithTag("EnemySpawner");
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseResumeGame();
         }
         if (enemySpanwer.Length == 0)
         {
-            Time.timeScale = 0;
             StartCoroutine(StartNext());
             //winUI.SetActive(true);
         }
         if (ourSpawner == null)
         {
-            Time.timeScale = 0;
-            StartCoroutine(Restart());
+            StartCoroutine(Defeat());
             //defeatUI.SetActive(false);
         }
         if (canGetAmino)
@@ -78,14 +81,20 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartNext()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.0f);
         SceneManager.LoadScene(nextScene);
+    }
+
+    IEnumerator Defeat()
+    {
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene("DefeatEnding");
     }
 
     IEnumerator Restart()
     {
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     void PauseResumeGame()
     {

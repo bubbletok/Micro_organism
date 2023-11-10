@@ -37,7 +37,6 @@ public class ChangeDescription : MonoBehaviour
 
     void OnMouseExit()
     {
-        print("Mouse Exit");
         memo.SetActive(false);
     }
 }

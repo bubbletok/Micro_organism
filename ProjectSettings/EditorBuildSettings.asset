@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ending.unity
     guid: 986c8611a887ce34a89a97d9cf402f9f
+  - enabled: 1
+    path: Assets/Scenes/DefeatEnding.unity
+    guid: ecea5307c3010544da297e75e05aec5d
   m_configObjects: {}

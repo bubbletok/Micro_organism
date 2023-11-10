@@ -30,5 +30,9 @@ public class SkipScene : MonoBehaviour
         {
             SceneManager.LoadScene("Ending");
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            SceneManager.LoadScene("DefeatEnding");
+        }
     }
 }
