@@ -1,10 +1,9 @@
-Get Food Poisoning - ½ÄÁßµ¶À» ºÎÅ¹ÇØ<br/><br/>
+Get Food Poisoning - ì‹ì¤‘ë…ì„ ë¶€íƒí•´<br/><br/>
 
-Àå¸£: ±³À°, Àü·«<br/>
-ÇÃ·§Æû: Windows<br/>
-°³¹ß µµ±¸: Unity<br/>
-¹öÀü °ü¸®: Github<br/>
-Á¦ÀÛ ±â°£: ÇÏ·ç<br/>
+ì¥ë¥´: êµìœ¡, ì „ëµ<br/>
+í”Œë«í¼: Windows<br/>
+ê°œë°œ ë„êµ¬: Unity<br/>
+ë²„ì „ ê´€ë¦¬: Github<br/>
+ì œì‘ ê¸°ê°„: í•˜ë£¨<br/>
 
-½ÇÇà ÆÄÀÏ ¸µÅ©:<br/>
-https://drive.google.com/file/d/1L5S264gVu9iC2CyHiwOI03WNkUI-SDhk/view?usp=drive_link
+[ì‹¤í–‰ íŒŒì¼ ë§í¬](https://github.com/bubbletok/Micro_organism/releases/tag/v0.1)<br/>
